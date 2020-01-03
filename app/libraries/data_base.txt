@@ -1,0 +1,23 @@
+
+create database mydb
+
+--Create The Users Table 
+create table mtdb.users(
+   id int(11) primary key not null auto_increment, 
+   name varchar(255) not null, 
+   email varchar(255) not null, 
+   password varchar(255) not null, 
+   created_at datetime not null
+);
+
+-- Create The Posts Table
+create table mydb.posts(
+    id int(11) primary key AUTO_INCREMENT,
+    user_id int(11),
+    title varchar(255),
+    body text not null, 
+    created_at datetime not null, 
+    foreign key (user_id) references users(id)
+);
+ALTER TABLE `users` 
+CHANGE `created_at` `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP;
